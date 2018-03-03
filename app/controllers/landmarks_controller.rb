@@ -28,6 +28,14 @@ class LandmarksController < ApplicationController
   end
 
   post '/landmarks/:id/edit' do
+    @landmark = Landmark.find_by_id(params[:id])
+    @landmark.update(params[:landmark])
+    @landmark.figure = Figure.find_or_create_by(name: params[:figure][:name])
+    @landmark.save
+
+
+
+    redirect "landmarks/#{@landmark.id}"
   end
 
 
