@@ -10,3 +10,7 @@
     <% @figure.titles.each do |title| %>
       <p><%= title.name %></p>
       <%end%>
+
+      <% if flash[:message] %>
+        <%= flash[:message] %>
+      <%end%>
